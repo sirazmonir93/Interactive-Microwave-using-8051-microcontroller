@@ -1,309 +1,56 @@
-Jurgen Smart Oven - Microcontroller Based System Design 🔥
-<div align="center">
-https://img.shields.io/badge/Microcontroller-AT89S52/AT89C51-blue?style=for-the-badge&logo=arduino
-https://img.shields.io/badge/Language-Assembly-8A2BE2?style=for-the-badge
-https://img.shields.io/badge/University-IUT,%2520OIC-important?style=for-the-badge
-https://img.shields.io/badge/Course-EEE%25204705-microcontrollers?style=for-the-badge
+# Jurgen Smart Oven Prototype Assignment Report
 
-A sophisticated embedded system project implementing a smart oven prototype with advanced features
+## Overview
 
-</div>
-📋 Project Overview
-The Jurgen Smart Oven is a comprehensive microcontroller-based embedded system project developed for the EEE 4705: Microcontroller Based System Design course at the Islamic University of Technology (IUT). This project implements a fully functional smart oven prototype using the AT89S52/AT89C51 microcontroller, featuring advanced user interface capabilities, safety mechanisms, and intelligent cooking modes.
+This repository contains the assignment submission for a complex engineering problem involving the design and simulation of a Jurgen Smart Oven Prototype. The project utilizes an AT89S52/AT89C51 microcontroller and was developed as part of the coursework at the Islamic University of Technology (IUT), under the Organisation of Islamic Cooperation (OIC).
 
-🎯 Academic Context
-Course: EEE 4705 - Microcontroller Based System Design
 
-University: Islamic University of Technology (IUT), OIC
+## Project Description
 
-Department: Electrical and Electronic Engineering
+The Jurgen Smart Oven Prototype is a simulated smart oven controller featuring a user-defined timer, countdown display, LCD messages, buzzer notifications, LED status indicators, and safety controls. The system is designed to provide an engaging user experience and was simulated using Proteus software.
 
-Student: K. M. Sirazul Monir (ID: 200021247)
+### Features
+1. **User-Defined Timer**: Allows setting cooking time from 5 to 300 seconds via keypad.
+2. **Out of Range Input Rejection**: Rejects inputs below 5s or above 300s.
+3. **Countdown Display**: Shows countdown on three 7-segment displays.
+4. **LCD Message Display**:
+   - Time < 60s: Displays a fixed message.
+   - Time > 60s: Shows random food/cooking facts.
+5. **Buzzer Notification**: Activates when countdown reaches zero.
+6. **LED Status Indication**: Indicates oven working state.
+7. **Start Button**: Initiates countdown after time input.
+8. **Restart Button**: Resets oven post-operation.
+9. **Emergency Stop Button**: Instantly halts oven operation.
+<img width="895" height="799" alt="Features" src="https://github.com/user-attachments/assets/65e73bd5-4d81-4b53-bf94-2d6323f8a24b" />
 
-Submission Date: November 8, 2024
+**Microcontroller Frequency**: 11 + (22-12) * (Student ID / 10^9) MHz = 13.00021247 MHz
 
-✨ Key Features
-🕒 Advanced Timer System
-User-Defined Timing: Set cooking duration from 5 to 300 seconds via keypad input
+## Documentation
 
-Input Validation: Automatically rejects inputs outside the valid range (<5s or >300s)
+- **Report**: [Assignment Report](JURGEN OVEN REPORT monir.pdf) – Detailed overview, features, and code explanation.
+- **Schematic**: [Proteus Schematic Screenshot](proteus_schematic.png) – Visual representation of the circuit design.
+- **Code**: [Source Code](code_snippet.png) – Partial view of the 8051 Assembly code.
 
-Real-time Countdown: Three 7-segment displays show remaining time in seconds
+## Setup and Simulation
+<img width="1875" height="796" alt="image" src="https://github.com/user-attachments/assets/ded13e36-8b40-4796-894c-82e590e88358" />
 
-📊 Intelligent Display System
-Dual-Mode LCD Messaging:
+### Prerequisites
+- Proteus Simulation Software
+- 8051 Assembler (e.g., Keil uVision)
 
-Quick Cook Mode (Time < 60s): Displays fixed cooking messages
+### Steps
+1. Load the Proteus schematic and attach the compiled HEX file from the assembly code.
+2. Compile the code using an 8051 assembler to generate the HEX file.
+3. Run the simulation, input a time (e.g., 030 for 30s), and press Start (F key) to observe functionality.
 
-Extended Cook Mode (Time > 60s): Shows rotating random facts about food and cooking
+## Limitations
+- Simulation-only prototype; no physical hardware implementation.
+- Random fact selection is based on a simple timer-based pseudo-random method.
+- Timer accuracy depends on the simulated clock frequency.
 
-Dynamic Content: 11 different cooking facts that rotate during operation
+## License
+All rights reserved by K. M. Sirazul Monir for educational purposes.
 
-🔔 Multi-Modal Notifications
-Audible Alert: Buzzer sounds when countdown completes
-
-Visual Indicators: LED status lights show oven operational state
-
-LCD Feedback: Real-time status messages and error notifications
-
-🛡️ Safety & Control Features
-Emergency Stop: Instant oven shutdown in any situation
-
-Restart Capability: Dedicated restart button after operation completion
-
-Input Validation: Comprehensive error checking for user inputs
-
-Heating Control: Precise control of heating element with safety protocols
-
-🛠️ Technical Specifications
-🎛️ Hardware Components
-yaml
-Microcontroller: AT89S52/AT89C51
-Clock Frequency: 13.00021247 MHz
-Display System:
-  - 16x2 LCD for text messages and status
-  - Three 7-segment displays for countdown timer
-Input System: 4x4 Matrix Keypad (0-9, A-F)
-Output Indicators:
-  - Buzzer for audio notification
-  - LED status indicators
-  - Heating element control
-Control Buttons:
-  - Start button
-  - Restart button
-  - Emergency stop button
-💾 Memory Organization
-Program Memory: Organized assembly code with structured subroutines
-
-Data Memory: Efficient use of internal RAM for:
-
-Timer values storage (40H, 44H, 53H)
-
-Counter variables (R0-R7)
-
-System flags and status registers
-
-🏗️ System Architecture
-🔄 Code Structure
-assembly
-; Main Program Flow
-1. INITIALIZE        - System initialization and port configuration
-2. LCD_INIT          - LCD display setup and calibration
-3. TIME_INPUT_LOOP   - User input handling and validation
-4. COOKING_LOOP_1/2  - Main cooking routines (two modes)
-5. DECREMENT_TIMER   - Real-time timer management
-6. DISPLAY_MANAGER   - Multi-display coordination
-🔧 Port Configuration
-assembly
-P0 - Keypad scanning interface
-P1 - LCD data port
-P2 - Control signals (RS, EN, Buzzer, Heating, Display select)
-P3 - 7-segment display output
-📁 Project Structure
-text
-Jurgen-Smart-Oven/
-├── 📄 Documentation/
-│   └── JURGEN_OVEN_REPORT_monir.pdf
-├── 💻 Source Code/
-│   └── jargon_oven.asm
-├── 🔌 Simulation/
-│   ├── Proteus Schematic Files
-│   └── Component Configuration
-├── 🖼️ Resources/
-│   └── Features.PNG
-└── 📖 README.md
-🚀 Implementation Details
-🔢 Timer Management System
-Three-Digit Input: Hundreds, tens, and ones places stored separately
-
-Mathematical Conversion: Converts keypad input to actual seconds
-
-Range Validation: Comprehensive checking for 5-300 second range
-
-Real-time Decrement: Smooth countdown with underflow handling
-
-🎮 User Interface Flow
-Initial Prompt: "ENTER TIME IN s:"
-
-Digit-by-Digit Input: Three-digit time entry with real-time display
-
-Mode Selection: Automatic based on time duration
-
-Cooking Phase: Real-time countdown with dynamic messaging
-
-Completion: Buzzer notification and reset options
-
-⌨️ Keypad Mapping
-text
-[1] [2] [3] [A]
-[4] [5] [6] [B]
-[7] [8] [9] [C]
-[0] [F] [E] [D]
-
-Special Functions:
-- F: Start cooking
-- A-F: Reserved for future expansion
-⚙️ Technical Implementation
-🔄 Operational Modes
-Mode 1: Quick Cooking (<60 seconds)
-Fixed power setting
-
-Continuous cooking tip display
-
-Simplified countdown display
-
-Mode 2: Extended Cooking (>60 seconds)
-Enhanced power management
-
-Rotating cooking facts display
-
-Advanced display updates
-
-⏰ Timing Subroutines
-DELAY_1S: Precise 1-second delay using Timer 0
-
-SHORT_DELAY: Keypad debouncing (∼10ms)
-
-LONG_DELAY: Extended delays (∼5 seconds)
-
-DISPLAY_DELAY: 7-segment display refresh timing
-
-🖥️ Display Management
-LCD Commands: Standard HD44780 command set
-
-7-Segment Patterns: Common cathode display patterns
-
-Multiplexing: Time-division multiplexing for three displays
-
-🛠️ Development & Setup
-💻 Software Requirements
-Tool	Purpose	Version
-ASEM-51	8051 Assembler	Latest
-Proteus	Circuit Simulation	8.0+
-Programmer	HEX File Upload	Compatible
-Text Editor	Code Development	Any
-🔌 Hardware Setup
-AT89S52/AT89C51 Development Board
-
-16x2 LCD Display
-
-Three 7-segment Common Cathode Displays
-
-4x4 Matrix Keypad
-
-Buzzer and LED indicators
-
-Heating element with driver circuit
-
-Power supply unit
-
-🚀 Getting Started
-📋 Installation Steps
-Assemble the Code: Use ASEM-51 or compatible assembler
-
-Load HEX File: Program the microcontroller with generated HEX file
-
-Setup Hardware: Connect all components as per schematic
-
-Power On: Apply 5V power supply to the system
-
-Test Functionality: Verify all features working correctly
-
-🎮 Operation Guide
-Power on the system
-
-Enter desired cooking time (3 digits)
-
-Press 'F' to start cooking
-
-Monitor countdown on 7-segment displays
-
-View cooking messages/facts on LCD
-
-System alerts when cooking completes
-
-Use restart or emergency stop as needed
-
-📊 Performance Characteristics
-⚡ System Performance
-Metric	Value	Description
-Response Time	Immediate	Keypad with debouncing
-Display Refresh	Smooth	7-segment multiplexing
-Timer Accuracy	Precise	1-second intervals
-Input Range	5-300s	Valid cooking duration
-🎯 Reliability Features
-✅ Input Validation: Comprehensive error checking
-
-✅ Safe Shutdown: Emergency stop functionality
-
-✅ Memory Management: Proper register initialization
-
-✅ Error Recovery: Automatic reset and retry mechanisms
-
-🔍 Code Highlights
-🎪 Innovative Features
-Dynamic Message System: Context-aware display messages
-
-Semi-Random Fact Generator: Creative use of timer for randomness
-
-Dual-Mode Operation: Adaptive behavior based on cooking duration
-
-Comprehensive Error Handling: User-friendly error messages
-
-💡 Technical Achievements
-Efficient Memory Usage: Optimal use of limited 8051 resources
-
-Real-time Multi-tasking: Simultaneous display updates and timing
-
-Robust Input Handling: Debounced keypad with validation
-
-Structured Programming: Modular, maintainable assembly code
-
-🐛 Known Limitations & Future Enhancements
-⚠️ Current Limitations
-Fixed 5-300 second timer range
-
-Limited to 11 cooking facts
-
-Basic pseudo-random number generation
-
-No temperature sensing capability
-
-🔮 Potential Improvements
-Temperature monitoring and control
-
-Recipe storage and recall
-
-Wireless connectivity for remote control
-
-Power level adjustment
-
-Expanded fact database
-
-Graphical display interface
-
-👨‍💻 Developer Information
-Developer: K. M. Sirazul Monir
-Student ID: 200021247
-Institution: Islamic University of Technology (IUT)
-Department: Electrical and Electronic Engineering
-Course: EEE 4705 - Microcontroller Based System Design
-
-📄 License & Acknowledgments
-This project is developed as part of academic coursework at IUT. All rights reserved by the developer. The code and design may be used for educational purposes with proper attribution.
-
-🙏 Special Thanks
-Islamic University of Technology for resources and support
-
-Department of Electrical and Electronic Engineering
-
-Course instructors for guidance and evaluation
-
-<div align="center">
-Note: This project demonstrates comprehensive embedded systems design principles and serves as an excellent example of microcontroller-based product development for educational and professional reference.
-
-For any queries or contributions, please contact the developer through the university channels.
-
-"Engineering is the art of directing the great sources of power in nature for the use and convenience of man." - Thomas Tredgold
-
-</div>
+## Acknowledgments
+- Islamic University of Technology (IUT) and the Department of Electrical and Electronic Engineering.
+- Proteus for simulation tools.
