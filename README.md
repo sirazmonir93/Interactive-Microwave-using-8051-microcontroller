@@ -1,7 +1,26 @@
-Jurgen Smart Oven - Microcontroller Based System Design
+Jurgen Smart Oven - Microcontroller Based System Design 🔥
+<div align="center">
+https://img.shields.io/badge/Microcontroller-AT89S52/AT89C51-blue?style=for-the-badge&logo=arduino
+https://img.shields.io/badge/Language-Assembly-8A2BE2?style=for-the-badge
+https://img.shields.io/badge/University-IUT,%2520OIC-important?style=for-the-badge
+https://img.shields.io/badge/Course-EEE%25204705-microcontrollers?style=for-the-badge
+
+A sophisticated embedded system project implementing a smart oven prototype with advanced features
+
+</div>
 📋 Project Overview
 The Jurgen Smart Oven is a comprehensive microcontroller-based embedded system project developed for the EEE 4705: Microcontroller Based System Design course at the Islamic University of Technology (IUT). This project implements a fully functional smart oven prototype using the AT89S52/AT89C51 microcontroller, featuring advanced user interface capabilities, safety mechanisms, and intelligent cooking modes.
 
+🎯 Academic Context
+Course: EEE 4705 - Microcontroller Based System Design
+
+University: Islamic University of Technology (IUT), OIC
+
+Department: Electrical and Electronic Engineering
+
+Student: K. M. Sirazul Monir (ID: 200021247)
+
+Submission Date: November 8, 2024
 
 ✨ Key Features
 🕒 Advanced Timer System
@@ -38,34 +57,21 @@ Heating Control: Precise control of heating element with safety protocols
 
 🛠️ Technical Specifications
 🎛️ Hardware Components
+yaml
 Microcontroller: AT89S52/AT89C51
-
-Clock Frequency: 13.00021247 MHz (custom calculated)
-
+Clock Frequency: 13.00021247 MHz
 Display System:
-
-16x2 LCD for text messages and status
-
-Three 7-segment displays for countdown timer
-
+  - 16x2 LCD for text messages and status
+  - Three 7-segment displays for countdown timer
 Input System: 4x4 Matrix Keypad (0-9, A-F)
-
 Output Indicators:
-
-Buzzer for audio notification
-
-LED status indicators
-
-Heating element control
-
+  - Buzzer for audio notification
+  - LED status indicators
+  - Heating element control
 Control Buttons:
-
-Start button
-
-Restart button
-
-Emergency stop button
-
+  - Start button
+  - Restart button
+  - Emergency stop button
 💾 Memory Organization
 Program Memory: Organized assembly code with structured subroutines
 
@@ -77,10 +83,8 @@ Counter variables (R0-R7)
 
 System flags and status registers
 
-🔧 System Architecture
-🏗️ Code Structure
-The system is built using 8051 assembly language with modular architecture:
-
+🏗️ System Architecture
+🔄 Code Structure
 assembly
 ; Main Program Flow
 1. INITIALIZE        - System initialization and port configuration
@@ -89,44 +93,25 @@ assembly
 4. COOKING_LOOP_1/2  - Main cooking routines (two modes)
 5. DECREMENT_TIMER   - Real-time timer management
 6. DISPLAY_MANAGER   - Multi-display coordination
-🔄 Operational Modes
-Mode 1: Quick Cooking (<60 seconds)
-Fixed power setting
-
-Continuous cooking tip display
-
-Simplified countdown display
-
-Mode 2: Extended Cooking (>60 seconds)
-Enhanced power management
-
-Rotating cooking facts display
-
-Advanced display updates
-
-⌨️ Keypad Mapping
-text
-[1] [2] [3] [A]
-[4] [5] [6] [B]
-[7] [8] [9] [C]
-[0] [F] [E] [D]
-
-Special Functions:
-- F: Start cooking
-- A-F: Reserved for future expansion
+🔧 Port Configuration
+assembly
+P0 - Keypad scanning interface
+P1 - LCD data port
+P2 - Control signals (RS, EN, Buzzer, Heating, Display select)
+P3 - 7-segment display output
 📁 Project Structure
 text
 Jurgen-Smart-Oven/
-├── Documentation/
+├── 📄 Documentation/
 │   └── JURGEN_OVEN_REPORT_monir.pdf
-├── Source Code/
+├── 💻 Source Code/
 │   └── jargon_oven.asm
-├── Simulation/
+├── 🔌 Simulation/
 │   ├── Proteus Schematic Files
 │   └── Component Configuration
-├── Resources/
+├── 🖼️ Resources/
 │   └── Features.PNG
-└── README.md
+└── 📖 README.md
 🚀 Implementation Details
 🔢 Timer Management System
 Three-Digit Input: Hundreds, tens, and ones places stored separately
@@ -148,20 +133,32 @@ Cooking Phase: Real-time countdown with dynamic messaging
 
 Completion: Buzzer notification and reset options
 
-🔄 Random Fact System
-Pseudo-Random Generation: Uses timer values for fact selection
+⌨️ Keypad Mapping
+text
+[1] [2] [3] [A]
+[4] [5] [6] [B]
+[7] [8] [9] [C]
+[0] [F] [E] [D]
 
-11 Unique Facts: Food-related tips and cooking information
-
-Rotating Display: Changes facts during extended cooking sessions
-
+Special Functions:
+- F: Start cooking
+- A-F: Reserved for future expansion
 ⚙️ Technical Implementation
-🔧 Port Configuration
-assembly
-P0 - Keypad scanning interface
-P1 - LCD data port
-P2 - Control signals (RS, EN, Buzzer, Heating, Display select)
-P3 - 7-segment display output
+🔄 Operational Modes
+Mode 1: Quick Cooking (<60 seconds)
+Fixed power setting
+
+Continuous cooking tip display
+
+Simplified countdown display
+
+Mode 2: Extended Cooking (>60 seconds)
+Enhanced power management
+
+Rotating cooking facts display
+
+Advanced display updates
+
 ⏰ Timing Subroutines
 DELAY_1S: Precise 1-second delay using Timer 0
 
@@ -178,16 +175,13 @@ LCD Commands: Standard HD44780 command set
 
 Multiplexing: Time-division multiplexing for three displays
 
-🛠️ Development Tools
+🛠️ Development & Setup
 💻 Software Requirements
-Assembler: ASEM-51 or equivalent 8051 assembler
-
-Simulator: Proteus Design Suite
-
-Programming Tool: Suitable AT89S52 programmer
-
-Editor: Any text editor with assembly syntax support
-
+Tool	Purpose	Version
+ASEM-51	8051 Assembler	Latest
+Proteus	Circuit Simulation	8.0+
+Programmer	HEX File Upload	Compatible
+Text Editor	Code Development	Any
 🔌 Hardware Setup
 AT89S52/AT89C51 Development Board
 
@@ -203,55 +197,8 @@ Heating element with driver circuit
 
 Power supply unit
 
-📊 Performance Characteristics
-⚡ System Performance
-Response Time: Immediate keypad response with debouncing
-
-Display Refresh: Smooth 7-segment multiplexing
-
-Timer Accuracy: Precise 1-second intervals
-
-Power Management: Efficient heating element control
-
-🎯 Reliability Features
-Input Validation: Comprehensive error checking
-
-Safe Shutdown: Emergency stop functionality
-
-Memory Management: Proper register initialization
-
-Error Recovery: Automatic reset and retry mechanisms
-
-🔍 Code Highlights
-🎪 Innovative Features
-Dynamic Message System: Context-aware display messages
-
-Semi-Random Fact Generator: Creative use of timer for randomness
-
-Dual-Mode Operation: Adaptive behavior based on cooking duration
-
-Comprehensive Error Handling: User-friendly error messages
-
-💡 Technical Achievements
-Efficient Memory Usage: Optimal use of limited 8051 resources
-
-Real-time Multi-tasking: Simultaneous display updates and timing
-
-Robust Input Handling: Debounced keypad with validation
-
-Structured Programming: Modular, maintainable assembly code
-
 🚀 Getting Started
-📋 Prerequisites
-Basic knowledge of 8051 microcontroller architecture
-
-Proteus simulator for circuit simulation
-
-8051 assembler for code compilation
-
-Hardware components for physical implementation
-
-🔧 Installation Steps
+📋 Installation Steps
 Assemble the Code: Use ASEM-51 or compatible assembler
 
 Load HEX File: Program the microcontroller with generated HEX file
@@ -276,6 +223,41 @@ View cooking messages/facts on LCD
 System alerts when cooking completes
 
 Use restart or emergency stop as needed
+
+📊 Performance Characteristics
+⚡ System Performance
+Metric	Value	Description
+Response Time	Immediate	Keypad with debouncing
+Display Refresh	Smooth	7-segment multiplexing
+Timer Accuracy	Precise	1-second intervals
+Input Range	5-300s	Valid cooking duration
+🎯 Reliability Features
+✅ Input Validation: Comprehensive error checking
+
+✅ Safe Shutdown: Emergency stop functionality
+
+✅ Memory Management: Proper register initialization
+
+✅ Error Recovery: Automatic reset and retry mechanisms
+
+🔍 Code Highlights
+🎪 Innovative Features
+Dynamic Message System: Context-aware display messages
+
+Semi-Random Fact Generator: Creative use of timer for randomness
+
+Dual-Mode Operation: Adaptive behavior based on cooking duration
+
+Comprehensive Error Handling: User-friendly error messages
+
+💡 Technical Achievements
+Efficient Memory Usage: Optimal use of limited 8051 resources
+
+Real-time Multi-tasking: Simultaneous display updates and timing
+
+Robust Input Handling: Debounced keypad with validation
+
+Structured Programming: Modular, maintainable assembly code
 
 🐛 Known Limitations & Future Enhancements
 ⚠️ Current Limitations
@@ -317,6 +299,11 @@ Department of Electrical and Electronic Engineering
 
 Course instructors for guidance and evaluation
 
+<div align="center">
 Note: This project demonstrates comprehensive embedded systems design principles and serves as an excellent example of microcontroller-based product development for educational and professional reference.
 
 For any queries or contributions, please contact the developer through the university channels.
+
+"Engineering is the art of directing the great sources of power in nature for the use and convenience of man." - Thomas Tredgold
+
+</div>
